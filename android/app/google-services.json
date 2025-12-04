@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "88616169049",
+    "project_id": "ipowertech",
+    "storage_bucket": "ipowertech.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:88616169049:android:d64a27ecf0689b345c0b48",
+        "android_client_info": {
+          "package_name": "com.example.ipowertech"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC2_ljCZ0ICefs59zKmGRDl6733aHIm5p4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
