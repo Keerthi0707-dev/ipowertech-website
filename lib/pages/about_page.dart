@@ -14,7 +14,6 @@ class AboutPage extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          // 🏢 Main Title
           Text(
             "About I Power Tech",
             style: TextStyles.heading1.copyWith(
@@ -37,7 +36,6 @@ class AboutPage extends StatelessWidget {
 
           const SizedBox(height: 60),
 
-          // ⚙️ Company Overview
           _buildImageTextSection(
             context: context,
             imagePath: "lib/assets/about_company.jpg",
@@ -51,12 +49,10 @@ class AboutPage extends StatelessWidget {
 
           const SizedBox(height: 60),
 
-          // 👷 Founder Profile Section
           _buildProfileSection(isWide),
 
           const SizedBox(height: 60),
 
-          // 🧰 Services
           _buildImageTextSection(
             context: context,
             imagePath: "lib/assets/about_services.jpg",
@@ -70,7 +66,6 @@ class AboutPage extends StatelessWidget {
 
           const SizedBox(height: 60),
 
-          // 💡 Commitment (Taller image section)
           _buildImageTextSection(
             context: context,
             imagePath: "lib/assets/about_commitment.png",
@@ -81,13 +76,24 @@ class AboutPage extends StatelessWidget {
             isImageLeft: false,
           ),
 
+          const SizedBox(height: 60),
+
+          // ✅ NEW IMAGE SECTION ADDED
+          _buildImageTextSection(
+            context: context,
+            imagePath: "lib/assets/about_extra.jpg", // 👈 add your new image
+            title: "Our Work in Action",
+            description:
+                "Take a look at our team delivering reliable generator solutions across various projects. Our hands-on expertise ensures every installation and service meets the highest standards of quality and safety.",
+            isImageLeft: true,
+          ),
+
           const SizedBox(height: 80),
         ],
       ),
     );
   }
 
-  // 📸 Reusable image-text layout with taller image for "Commitment" section
   Widget _buildImageTextSection({
     required BuildContext context,
     required String imagePath,
@@ -97,20 +103,20 @@ class AboutPage extends StatelessWidget {
   }) {
     final isWide = MediaQuery.of(context).size.width > 800;
 
-    // 🧩 Custom height for the commitment section image
     final bool isCommitmentSection = title.contains("Commitment");
+    final bool isServiceSection = title.contains("Expertise");
 
     final imageWidget = Container(
-      color: Colors.black, // 🖤 Black background applied to all images
+      color: Colors.black,
       child: ClipRRect(
         borderRadius: BorderRadius.circular(20),
         child: Image.asset(
           imagePath,
           width: isWide ? 550 : double.infinity,
           height: isCommitmentSection
-              ? (isWide ? 460 : 320) // 🔼 Taller image for commitment section
+              ? (isWide ? 460 : 320)
               : (isWide ? 340 : 240),
-          fit: BoxFit.cover,
+          fit: isServiceSection ? BoxFit.contain : BoxFit.cover,
         ),
       ),
     );
@@ -175,7 +181,6 @@ class AboutPage extends StatelessWidget {
     );
   }
 
-  // 👨‍🔧 Profile Section
   Widget _buildProfileSection(bool isWide) {
     return Container(
       decoration: BoxDecoration(
@@ -196,7 +201,7 @@ class AboutPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
-                  color: Colors.black, // 🖤 Black background for profile image
+                  color: Colors.black,
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(20),
                     child: Image.asset(
@@ -214,7 +219,7 @@ class AboutPage extends StatelessWidget {
           : Column(
               children: [
                 Container(
-                  color: Colors.black, // 🖤 Black background for profile image
+                  color: Colors.black,
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(20),
                     child: Image.asset(
@@ -232,7 +237,6 @@ class AboutPage extends StatelessWidget {
     );
   }
 
-  // 🧠 Detailed profile content
   Widget _buildProfileText() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -247,33 +251,8 @@ class AboutPage extends StatelessWidget {
         ),
         const SizedBox(height: 12),
         Text(
-          "Mr. I. Ravikumar, the founder of I Power Tech, is a highly skilled professional with over 15 years of in-depth experience in the generator and power solutions industry. "
-          "He began his career as a Technician at Mahindra Power Systems, where he gained extensive hands-on expertise in generator maintenance, fault analysis, and system performance optimization.",
-          style: TextStyles.body.copyWith(
-            fontSize: 17,
-            height: 1.6,
-            color: Colors.black,
-          ),
-        ),
-        const SizedBox(height: 12),
-        Text(
-          "During his tenure, he underwent multiple advanced training programs and certification courses conducted by Mahindra Power Systems and other reputed organizations across India. "
-          "His dedication and technical excellence earned him several awards and recognitions during these trainings, highlighting his commitment to continuous learning and innovation.",
-          style: TextStyles.body.copyWith(
-            fontSize: 17,
-            height: 1.6,
-            color: Colors.black,
-          ),
-        ),
-        const SizedBox(height: 12),
-        Text(
-          "With deep expertise in electrical systems, engine calibration, and power management, Mr. Ravikumar has led numerous large-scale generator projects with precision and reliability. "
-          "His leadership has built I Power Tech into a trusted name known for quality service, genuine parts, and 24×7 support — a company that truly powers progress.",
-          style: TextStyles.body.copyWith(
-            fontSize: 17,
-            height: 1.6,
-            color: Colors.black,
-          ),
+          "Mr. I. Ravikumar, the founder of I Power Tech, is a highly skilled professional with over 15 years of in-depth experience in the generator and power solutions industry.",
+          style: TextStyles.body.copyWith(fontSize: 17, height: 1.6),
         ),
       ],
     );

@@ -26,7 +26,7 @@ class ContactPage extends StatelessWidget {
           const SizedBox(height: 10),
 
           Text(
-            "Get in touch with I Power Tech — we’re here to help with all your generator and power service needs.",
+            "Get in touch with I Power Tech — we’re here to help with all your generator and power service needs.Specialist in all kinds of DG sets.",
             style: TextStyles.body.copyWith(
               fontSize: 18,
               color: Colors.black87,
@@ -132,7 +132,7 @@ class ContactPage extends StatelessWidget {
         const SizedBox(height: 20),
         _infoRow(
           Icons.location_on,
-          "Guntur,A.P",
+          " Gayathri nagar 3rd line,chuttugunta,Guntur,A.P",
         ),
         const SizedBox(height: 15),
         Text(

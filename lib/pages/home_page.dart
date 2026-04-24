@@ -18,7 +18,7 @@ class HomePage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            // 🖼 Hero Banner
+            // 🖼 Hero Banner (✅ Overlay Removed)
             Stack(
               alignment: Alignment.center,
               children: [
@@ -28,13 +28,16 @@ class HomePage extends StatelessWidget {
                   fit: BoxFit.cover,
                   height: bannerHeight,
                 ),
-                Container(
-                  height: bannerHeight,
-                  width: double.infinity,
-                  color: Colors.black.withValues(alpha: 0.4),
-                ),
-                Text(
-                  "Powering Your World with I Power Tech ⚡",
+
+                // ❌ REMOVED THIS OVERLAY
+                // Container(
+                //   height: bannerHeight,
+                //   width: double.infinity,
+                //   color: const Color.fromARGB(255, 218, 214, 214)
+                //       .withValues(alpha: 0.4),
+                // ),
+
+                Text("",
                   style: TextStyles.heading1.copyWith(
                     color: Colors.white,
                     fontSize: 36,
@@ -46,6 +49,24 @@ class HomePage extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
               ],
+            ),
+
+            const SizedBox(height: 30),
+
+            // 🆕 TRAINING IMAGE SECTION
+            _buildSectionHeader("I Power Tech Generator Services"),
+            const SizedBox(height: 20),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 40),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(20),
+                child: Image.asset(
+                  "lib/assets/ourjourney.jpg",
+                  width: double.infinity,
+                  height: 300,
+                  fit: BoxFit.cover,
+                ),
+              ),
             ),
 
             const SizedBox(height: 30),
@@ -75,9 +96,10 @@ class HomePage extends StatelessWidget {
                       "https://wa.me/$phone?text=${Uri.encodeFull(message)}",
                     );
 
-                    await launchUrl(url, mode: LaunchMode.externalApplication);
+                    await launchUrl(url,
+                        mode: LaunchMode.externalApplication);
                   },
-                  icon: Icon(Icons.chat, color: Colors.white),
+                  icon: const Icon(Icons.chat, color: Colors.white),
                   label: const Text(
                     "Contact on WhatsApp",
                     style: TextStyle(fontSize: 16, color: Colors.white),
@@ -152,6 +174,32 @@ class HomePage extends StatelessWidget {
                   description:
                       "Genuine spare parts, lubricants, and accessories for all generator models.",
                 ),
+
+                // EXTRA SERVICES
+                _buildServiceCard(
+                  icon: Icons.power,
+                  title: "DG Set Rental",
+                  description:
+                      "Reliable generator rental services for events, construction sites, and temporary needs.",
+                ),
+                _buildServiceCard(
+                  icon: Icons.settings,
+                  title: "Control Panel Setup",
+                  description:
+                      "Installation and configuration of advanced control panels.",
+                ),
+                _buildServiceCard(
+                  icon: Icons.battery_charging_full,
+                  title: "Battery Services",
+                  description:
+                      "Battery inspection, replacement, and charging solutions.",
+                ),
+                _buildServiceCard(
+                  icon: Icons.security,
+                  title: "Load Testing",
+                  description:
+                      "Ensure generator efficiency with accurate load testing.",
+                ),
               ],
             ),
 
@@ -190,19 +238,19 @@ class HomePage extends StatelessWidget {
                         icon: Icons.access_time,
                         title: "24/7 Emergency Support",
                         description:
-                            "Our dedicated team ensures round-the-clock service whenever you need us.",
+                            "Our dedicated team ensures round-the-clock service.",
                       ),
                       _buildFeatureCard(
                         icon: Icons.verified,
                         title: "Trusted Expertise",
                         description:
-                            "Years of experience in generator services with highly trained technicians.",
+                            "Highly trained technicians with years of experience.",
                       ),
                       _buildFeatureCard(
                         icon: Icons.energy_savings_leaf,
                         title: "Eco-Friendly Solutions",
                         description:
-                            "We promote sustainable energy practices with fuel-efficient generator systems.",
+                            "Fuel-efficient and sustainable generator systems.",
                       ),
                     ],
                   ),
@@ -211,8 +259,6 @@ class HomePage extends StatelessWidget {
             ),
 
             const SizedBox(height: 80),
-
-            // CTA Removed Completely
             const SizedBox(height: 80),
           ],
         ),

@@ -68,6 +68,8 @@ flutter:
     - lib/assets/about_commitment.png
     - lib/assets/ravikumar_profile.jpg
     - lib/assets/office_location.png
+    - lib/assets/ourjourney.jpg
+    - lib/assets/about_extra.jpg
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
