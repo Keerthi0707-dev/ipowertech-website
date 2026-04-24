@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://keerthi0707-dev.github.io/ipowertech-website/sitemap.xml
