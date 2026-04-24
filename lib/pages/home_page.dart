@@ -28,15 +28,6 @@ class HomePage extends StatelessWidget {
                   fit: BoxFit.cover,
                   height: bannerHeight,
                 ),
-
-                // ❌ REMOVED THIS OVERLAY
-                // Container(
-                //   height: bannerHeight,
-                //   width: double.infinity,
-                //   color: const Color.fromARGB(255, 218, 214, 214)
-                //       .withValues(alpha: 0.4),
-                // ),
-
                 Text("",
                   style: TextStyles.heading1.copyWith(
                     color: Colors.white,
@@ -61,11 +52,11 @@ class HomePage extends StatelessWidget {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(20),
                 child: Image.asset(
-                  "lib/assets/ourjourney.jpg",
-                  width: double.infinity,
-                  height: 300,
-                  fit: BoxFit.cover,
-                ),
+                "lib/assets/ourjourney.jpg",
+                width: double.infinity,
+                fit: BoxFit.contain, // or contain (explained below)
+                filterQuality: FilterQuality.high, // ✅ MUST ADD
+                )
               ),
             ),
 
